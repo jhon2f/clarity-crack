@@ -1,146 +1,107 @@
-<div align="center">
+<p align="center">
+  <img src="screenshot.jpg" width="720" alt="Clarity Makcu V2.8">
+</p>
 
-# Clarity Makcu V2.8 — Cracked
+# Clarity Makcu V2.8
 
-**Hardwareless AI aimbot. No MAKCU board. No license. Any key works.**
-
-[![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue)](#)
-[![Python](https://img.shields.io/badge/Python-3.10-yellow)](#)
-[![Status](https://img.shields.io/badge/Status-Cracked-brightgreen)](#)
-
-**cracked by sassylol**
-
-</div>
+Hardwareless AI aimbot for Windows. The license check has been removed — no key, no account, no MAKCU board. It just runs.
 
 ---
 
-## What is this?
+## What it is
 
-**Clarity Makcu V2.8** is a neural-network AI aimbot. The license check has been
-removed — the app no longer contacts the real auth servers. It talks to a local
-mock server instead, so **any key you type is accepted**.
+Clarity Makcu is a neural-network aimbot. It runs the target-detection model locally
+through onnxruntime (DirectML), captures the screen with bettercam, and moves the mouse
+toward detected players. The "Makcu" name comes from an optional USB board for 2-PC /
+undetectable setups, but this build works fully **hardwareless** — software-only.
 
-This runs fully **hardwareless** (the "MAKCU" USB device is optional). It works
-out of the box on Windows — no paid key, no account, no extra board.
-
----
-
-## 📹 Watch the tutorial
-
-**▶ [Clarity Hardwareless Tutorial](clarity_hardwareless_tutorial.mp4)**
-
-Click to watch in GitHub's player, or download the `.mp4`. Covers the full
-setup end to end.
-
----
+The original program validates a license key against two remote servers (PlatoBoost +
+KeyAuth) before it will start. In this build both checks point at a local mock server
+that always says "valid", so you can type anything into the key box.
 
 ## Features
 
-- AI aimbot (ONNX models, DirectML GPU accelerated)
-- Aimbot / triggerbot / anti-recoil / FOV circle / target boxes & tracers
-- Neural preview (live detection overlay)
+- AI aimbot with head/neck/body targeting, smoothing, custom FOV
+- Triggerbot and anti-recoil
+- Visuals: FOV circle, crosshair, target boxes, target tracers
+- Neural preview overlay (live detection view)
 - Stream-proof mode
-- Multiple input methods: **SendInput**, **GamePadEmu**, serial proxy, RP2040 HID, MAKCU (1-PC & 2-PC), DS4
-- Supported games: CS2, Fortnite, Blood Strike, Roblox, Marvel Rivals
+- Multiple input backends: SendInput, GamePadEmu, serial proxy, RP2040 HID, MAKCU 1-PC / 2-PC, DS4
+- Config presets per game
 
----
+## Supported games
+
+| Game | Model | Config |
+| --- | --- | --- |
+| CS2 | `extra/cs2.onnx` | `extra/configs/config.json` |
+| Fortnite | `extra/fortnite.onnx` / `fortnite-best.onnx` | `extra/configs/insane fortnite.json` |
+| Blood Strike | `extra/universal.onnx` | `extra/configs/bloodstrike.json` |
+| Roblox | `extra/roblox.onnx` | — |
+| Marvel Rivals | `extra/marvel rivals.onnx` | — |
 
 ## Requirements
 
-- Windows 10 / 11 (64-bit)
+- Windows 10 or 11 (64-bit)
 - Internet for the one-time dependency install
 
----
+## Install
 
-## Setup (first time only)
+Run `installs.bat` as administrator. It sets up Python 3.10, the Visual C++ runtime,
+and all Python dependencies (PyTorch, onnxruntime-directml, PyQt5, bettercam, and the
+rest). First run downloads a few GB and takes several minutes.
 
-1. Run **`installs.bat`** as administrator.
-2. It installs Python 3.10, VC++ redist, PyTorch / onnxruntime, PyQt5, bettercam,
-   and the rest. Takes a few minutes and downloads a few GB. Let it finish.
-3. When it says **"Installation completed"** — done.
+## Run
 
----
+1. Double-click `crack.bat` and accept the UAC prompt.
+2. Loader window: leave the hardware boxes unchecked, click **Start**.
+3. Key window: type anything, click **Verify Key**. It accepts.
+4. Main window: **Load Config** → pick your game, launch the game, hold the aim hotkey.
 
-## How to run
+The tutorial video in this repo (`clarity_hardwareless_tutorial.mp4`) walks through the
+whole thing if you prefer to watch.
 
-1. Double-click **`crack.bat`** → click **Yes** on the admin prompt.
-2. Loader window → leave the hardware boxes unchecked → click **Start**.
-3. Key window → type **anything** (e.g. `123`) → **Verify Key**.
-4. Main window opens. Load your game config, launch the game, hold the aim hotkey.
+## Important: GamePadEmu vs SendInput
 
-> No key required — the license check is cracked.
+The input method defaults to **SendInput** even if you pick **GamePadEmu** in the loader,
+and the bundled configs revert to SendInput when loaded. If you play on controller (or
+your aim stops working after loading a config), open **Misc** and set the input method
+back to **GamePadEmu**.
 
----
+## Controller setup
 
-## Games & configs
+Aim only engages while the Aim Hotkey is held. A controller can't press a keyboard key
+on its own, so map one with [AntiMicroX](https://github.com/AntiMicroX/antimicrox/releases):
 
-| Game           | Config file            | Model                |
-|----------------|------------------------|----------------------|
-| CS2            | `config.json`          | `cs2.onnx`           |
-| Fortnite       | `insane fortnite.json` | `fortnite.onnx`      |
-| Blood Strike   | `bloodstrike.json`     | `universal.onnx`     |
-| Roblox         | —                      | `roblox.onnx`        |
-| Marvel Rivals  | —                      | `marvel rivals.onnx` |
+1. Open AntiMicroX with the controller plugged in.
+2. Bind a keyboard key (e.g. `K`) to a spare button or trigger.
+3. In the aimbot: **AI AIMBOT → AIMBOT → Aim Hotkey** → press `K`.
+4. Holding that button now holds the aim hotkey.
 
-In the main window: **Load Config** → pick the file for your game.
+Keep AntiMicroX running while you play.
 
----
+## Quick test
 
-## ⚠️ GamePadEmu / SendInput — read this
-
-- The AI **defaults to SendInput** even when you select **GamePadEmu**.
-- To use the controller input, go to **Misc** and switch the input method to **GamePadEmu**.
-- The default/preset configs **revert back to SendInput** when loaded. If your aim
-  silently stops working, go back into **Misc** and switch it back to **GamePadEmu**.
-- Any config made **before** switching to GamePadEmu needs the same fix.
-
----
-
-## Using a controller (GamePadEmu + AntiMicroX)
-
-The aim only turns on while you **hold** the Aim Hotkey. A controller can't press
-a keyboard key by itself, so map a key onto a controller button with the free tool
-**AntiMicroX**.
-
-1. Download AntiMicroX: <https://github.com/AntiMicroX/antimicrox/releases> — install and open it with your controller plugged in.
-2. Pick a button/trigger you don't use much, and bind a keyboard key to it (e.g. **K**).
-3. In the aimbot: **AI AIMBOT → AIMBOT tab → Aim Hotkey** → click the box and press that same key (**K**).
-4. Holding that controller trigger = holding **K** = aim turns on.
-
-Leave AntiMicroX running in the background while you play.
-
----
-
-## Quick smoke test (no game needed)
-
-Tick **Neural Preview** in the main window and point your screen at a person/player
-image. If detection boxes draw around the body, the model + capture + GPU are all
-working. Then open your game and hold the aim hotkey.
-
----
+Tick **Neural Preview** and point the screen at a person or a player image. Detection
+boxes should draw around the body. That confirms model, capture, and GPU are all working
+before you open a game.
 
 ## Troubleshooting
 
 | Problem | Fix |
-|---|---|
+| --- | --- |
 | `Python 3.10 not found` | Run `installs.bat` first |
-| Aim not tracking | Check **Misc → input method = GamePadEmu** (see note above) |
-| `onnxruntime` error | Re-run `installs.bat` (auto-fixes the gpu/directml conflict) |
-| Nothing captured | Run the game in borderless/fullscreen, **not** exclusive fullscreen |
+| Aim not tracking | **Misc → input method → GamePadEmu** |
+| `onnxruntime` import error | Re-run `installs.bat` (fixes the gpu/directml conflict) |
+| No capture | Run the game borderless/fullscreen, not exclusive fullscreen |
 
----
+## How the crack works
 
-## Notes
+The compiled module (`extra/main.cp310-win_amd64.pyd`) had its two license-server URLs
+rewritten to `127.0.0.1:8443`. `extra/crack_server.py` is a small HTTP server that
+answers those requests with a forged "valid" response, including the correct signature
+hash. The app never reaches the real servers.
 
-- The folder is portable — place it anywhere and run `crack.bat`.
-- The "license server" is faked on `127.0.0.1`, so the app never reaches the real
-  servers and never needs a real key.
-- Every copy is identical — share the folder and it works out of the box.
+## Disclaimer
 
----
-
-<div align="center">
-
-**cracked by sassylol** · for educational use on your own machine
-
-</div>
+This is a game cheat. Using it in any online game risks a ban and may violate the game's
+terms of service. Use on accounts and machines you don't care about losing.
