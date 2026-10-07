@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="screenshot.jpg" width="720" alt="Clarity Makcu V2.8">
+  <img src="screenshot.jpg" width="860" alt="Clarity Makcu V2.8">
 </p>
 
 # Clarity Makcu V2.8
@@ -18,6 +18,12 @@ undetectable setups, but this build works fully **hardwareless** — software-on
 The original program validates a license key against two remote servers (PlatoBoost +
 KeyAuth) before it will start. In this build both checks point at a local mock server
 that always says "valid", so you can type anything into the key box.
+
+## Tutorial
+
+![Clarity Makcu tutorial preview](preview.gif)
+
+Full walkthrough (with audio): [clarity_hardwareless_tutorial.mp4](clarity_hardwareless_tutorial.mp4) — download and play, or open it in the GitHub file viewer.
 
 ## Features
 
