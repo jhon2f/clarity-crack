@@ -101,6 +101,13 @@ rewritten to `127.0.0.1:8443`. `extra/crack_server.py` is a small HTTP server th
 answers those requests with a forged "valid" response, including the correct signature
 hash. The app never reaches the real servers.
 
+## Support
+
+Need help or updates?
+
+- Telegram: [t.me/leakitall](https://t.me/leakitall)
+- Discord: `sassymemelol`
+
 ## Disclaimer
 
 This is a game cheat. Using it in any online game risks a ban and may violate the game's
