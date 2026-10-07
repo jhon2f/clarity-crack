@@ -3,8 +3,10 @@
 :: Starts the local license mock, then runs the app. Any key now verifies.
 cd /d "%~dp0"
 
-set "PY=C:\Users\Vblak\AppData\Local\Programs\Python\Python310\python.exe"
-if not exist "%PY%" set "PY=python"
+set "PY="
+if exist "%LOCALAPPDATA%\Programs\Python\Python310\python.exe" set "PY=%LOCALAPPDATA%\Programs\Python\Python310\python.exe"
+if not defined PY if exist "C:\Program Files\Python310\python.exe" set "PY=C:\Program Files\Python310\python.exe"
+if not defined PY set "PY=python"
 
 echo [1/2] starting license mock server...
 start "clarity-crack-server" /min "%PY%" "%~dp0extra\crack_server.py"

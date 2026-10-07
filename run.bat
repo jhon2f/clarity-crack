@@ -11,11 +11,18 @@ cd /d "%~dp0"
 :: Detect Python 3.10
 set "PY="
 set "PIP="
-:: Check the installed interpreter directly, even when PATH is stale.
-if exist "C:\Users\Vblak\AppData\Local\Programs\Python\Python310\python.exe" (
-    "C:\Users\Vblak\AppData\Local\Programs\Python\Python310\python.exe" -c "import sys; exit(0 if sys.version_info[:2]==(3,10) else 1)" >nul 2>&1
+:: Check common install locations directly, even when PATH is stale.
+if exist "%LOCALAPPDATA%\Programs\Python\Python310\python.exe" (
+    "%LOCALAPPDATA%\Programs\Python\Python310\python.exe" -c "import sys; exit(0 if sys.version_info[:2]==(3,10) else 1)" >nul 2>&1
     if not errorlevel 1 (
-        set "PY=C:\Users\Vblak\AppData\Local\Programs\Python\Python310\python.exe"
+        set "PY=%LOCALAPPDATA%\Programs\Python\Python310\python.exe"
+        goto found_python
+    )
+)
+if exist "C:\Program Files\Python310\python.exe" (
+    "C:\Program Files\Python310\python.exe" -c "import sys; exit(0 if sys.version_info[:2]==(3,10) else 1)" >nul 2>&1
+    if not errorlevel 1 (
+        set "PY=C:\Program Files\Python310\python.exe"
         goto found_python
     )
 )
