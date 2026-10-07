@@ -1,0 +1,6 @@
+{
+    "targetfps": 60,
+    "arduino": false,
+    "arduinocom": "COM1",
+    "makcu": false
+}

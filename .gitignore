@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+error_log.txt
+
+# Backups / patches
+*.bak
+*.orig
+
+# Cached license (each user should verify fresh)
+extra/key.json
+
+# OS junk
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Local build artifacts
+*.tmp

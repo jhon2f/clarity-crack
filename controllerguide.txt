@@ -1,0 +1,21 @@
+------------------------------------------------------------------------
+USING A CONTROLLER  (only if you play on controller, with GamePadEmu)
+------------------------------------------------------------------------
+  The aim only turns on while you HOLD your Aim Hotkey. A controller
+  cannot press a keyboard key on its own, so you map a key onto a
+  controller button using a free tool called AntiMicroX.
+
+  1. Download AntiMicroX (free):
+        https://github.com/AntiMicroX/antimicrox/releases
+     Install it and open it with your controller plugged in.
+
+  2. In AntiMicroX, pick a button/trigger you don't use much (for
+     example a trigger) and bind a random keyboard key to it
+     (for example the  K  key).
+
+  3. In AI AIMBOT -> AIMBOT tab -> Aim Hotkey: click the box and press
+     that SAME key ( K ).
+
+  4. Now holding that controller trigger = holding K = aim turns on.
+
+  Leave AntiMicroX running in the background while you play.
